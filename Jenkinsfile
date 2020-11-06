@@ -6,12 +6,10 @@ properties([
                      name: 'failFast'),
         string(
             trim: true,
-            defaultValue: 'akladiev/github_get_changed_files',
+            defaultValue: 'akladiev/changesets_to_entrypoint',
             name: 'library_version')
     ])
 ])
-                    loadOpenVinoLibrary { thelib ->
-                        client = thelib.com.intel.openvino.client.ClientFactory.buildClient(this, false)
-                        changeset = client.getChangedFiles()
-                        println "[INFO] Files changed :\n${changeset.join('\n')}"
-                    }
+loadOpenVinoLibrary {
+    entrypoint(this)
+}
