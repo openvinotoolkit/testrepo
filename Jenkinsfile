@@ -11,6 +11,6 @@ properties([
     ])
 ])
 
-loadOpenVinoLibrary {
-    entrypoint(this)
+node() {
+    sh 'env'   
 }
