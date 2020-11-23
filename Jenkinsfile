@@ -10,6 +10,6 @@ properties([
                name: 'library_version')
     ])
 ])
-loadOpenVinoLibrary {
-    entrypoint(this)
-}
+
+echo "Hello, world"
+echo "Some change"
