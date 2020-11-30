@@ -6,3 +6,5 @@ test2
 anotherone
 
 aaand another one
+
+and one with unicode
