@@ -17,7 +17,7 @@ properties([
                name: 'sourceBranch'),
         string(defaultValue: 'master',
                description: 'aaa',
-               name: 'targetBranch')
+               name: 'targetBranch'),
         string(defaultValue: 'master',
                description: 'aaa',
                name: 'commitSha'),
