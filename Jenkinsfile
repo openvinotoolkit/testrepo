@@ -9,7 +9,7 @@ properties([
         booleanParam(defaultValue: true,
                      description: 'Propagate status to GitHub',
                      name: 'propagateStatus'),
-        string(defaultValue: '',
+        string(defaultValue: 'ab/gitlab_url_refactor',
                description: 'Pipeline shared library version (branch/tag/commit). Determined automatically if empty',
                name: 'library_version')
     ])
