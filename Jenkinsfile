@@ -1,6 +1,5 @@
 #!groovy
 
-
 properties([
     parameters([
         booleanParam(defaultValue: true,
@@ -14,6 +13,8 @@ properties([
                name: 'library_version')
     ])
 ])
+
+
 
 loadOpenVinoLibrary {
     entrypoint(this)
