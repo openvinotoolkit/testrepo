@@ -8,6 +8,8 @@ properties([
     ])
 ])
 
+@Library('common@aaksyonov/vpuEntrypoint') _
+
 loadVPUXLibrary {
     vpuEntrypoint(this)
 }
