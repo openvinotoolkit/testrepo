@@ -13,4 +13,3 @@ properties([
 loadVPUXLibrary {
     vpuEntrypoint(this)
 }
-
