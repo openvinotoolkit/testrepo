@@ -1,5 +1,4 @@
 #!groovy
-@Library('common@aaksyonov/vpuEntrypoint') _
 
 properties([
     parameters([
@@ -10,5 +9,6 @@ properties([
 ])
 
 loadVPUXLibrary {
+    @Library('common@aaksyonov/vpuEntrypoint') _
     vpuEntrypoint(this)
 }
