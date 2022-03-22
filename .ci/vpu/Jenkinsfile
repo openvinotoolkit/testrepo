@@ -13,7 +13,3 @@ properties([
 loadVPUXLibrary {
     vpuPrecommit.runOvPrecommit(this)
 }
-
-
-
-
