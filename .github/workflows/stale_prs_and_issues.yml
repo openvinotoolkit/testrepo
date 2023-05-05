@@ -16,5 +16,4 @@ jobs:
           close-pr-message: 'This PR was closed because it has been stalled for 7 days with no activity.'
           days-before-stale: 500
           days-before-close: 7
-          debug-only: true
-
+          # debug-only: true
