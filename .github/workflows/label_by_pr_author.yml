@@ -24,4 +24,4 @@ jobs:
       - name: Label commit by PR author
         run: python3 openvino/.github/github_org_control/check_pr.py --pr=${{ github.event.number }} --cfg-file=.github/workflows/config.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ORG_TOKEN }}
