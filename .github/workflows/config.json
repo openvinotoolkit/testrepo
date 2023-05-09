@@ -2,6 +2,14 @@
     "GITHUB_TOKEN": "<Put token here or set as arg or as env variable>",
     "GITHUB_ORGANIZATION": "openvinotoolkit",
     "GITHUB_REPO": "testrepo",
+    "IGNORE_LOGINS": [
+        "openvino-ci",
+        "openvino-pushbot",
+        "workbench-ci-bot",
+        "openvino-pot-ci",
+        "sysicvvpux",
+        "ote-ci-bot"
+    ],
     "PROXIES": {
         "HTTP_PROXY": null,
         "HTTPS_PROXY": null,
