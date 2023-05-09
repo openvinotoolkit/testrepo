@@ -12,11 +12,11 @@ jobs:
       - name: Clone OpenVINO
         uses: snow-actions/sparse-checkout@v1.2.0
         with:
-          repository: openvinotoolkit/openvino
+          repository: akladiev/openvino
           path: openvino
-          ref: master
+          ref: label_by_pr_author
           patterns: |
-            .github
+            .github/github_org_control
 
       - name: Install dependencies
         run: python3 -m pip install -r openvino/.github/github_org_control/requirements.txt
