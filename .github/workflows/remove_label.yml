@@ -6,9 +6,11 @@ on:
     types: [opened]
 
 jobs:
-  automate-issues-labels:
+  remove_label:
     runs-on: ubuntu-latest
     steps:
-      - uses: andymckay/labeler@master
+      - uses: buildsville/add-remove-label@v2.0.0
         with:
-          remove-labels: Stale
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: Stale
+          type: remove
