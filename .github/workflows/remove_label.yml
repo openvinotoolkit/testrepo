@@ -1,9 +1,9 @@
 name: "Label remover"
 
-on:
-  workflow_dispatch:
-  issues:
-    types: [opened]
+on: workflow_dispatch
+permissions:
+  issues: write
+  pull-requests: write
 
 jobs:
   remove_label:
