@@ -1,20 +1,12 @@
-name: "Label remover"
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '20 21 * * *'
-
+name: Label remover
+on: workflow_dispatch
 permissions:
   issues: write
-  pull-requests: write
-
 jobs:
-  remove_label:
+  remove-issue-label:
     runs-on: ubuntu-latest
     steps:
-      - uses: buildsville/add-remove-label@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@v1
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
           labels: Stale
-          type: remove
