@@ -1,6 +1,10 @@
 name: "Label remover"
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 21 * * *'
+
 permissions:
   issues: write
   pull-requests: write
