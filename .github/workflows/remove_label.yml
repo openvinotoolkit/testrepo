@@ -1,6 +1,7 @@
 name: "Label remover"
 
 on:
+  workflow_dispatch:
   issues:
     types: [opened]
 
