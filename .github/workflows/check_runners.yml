@@ -1,0 +1,29 @@
+name: Test how runners are utilized from forks
+on:
+  pull_request:
+
+
+jobs:
+  Large:
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest-16-cores
+    steps:
+      - name: Hello world (Large)
+        run: |
+          echo "Large runner from organization should be utilized"
+
+  Usual:
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world (Usual)
+        run: |
+          echo "Usual runner from organization should be utilized"
