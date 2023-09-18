@@ -17,6 +17,7 @@ jobs:
           commit_sha: ${{ github.sha }}
           component_pattern: "category: (.*)"
           repo_token: ${{ secrets.GITHUB_TOKEN }} # it has read-only access for forks, should be fine
+          labeler_check_name: "Usual"
 
       - name: Show affected components
         run: |
