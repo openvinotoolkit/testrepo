@@ -2,7 +2,7 @@ name: Check Windows requirements
 on: [pull_request]
 
 jobs:
-  Checks:
+  TestEnv:
     runs-on: aks-win-16-cores-32gb
     steps:
       - name: Setup Python 3.11
@@ -16,7 +16,7 @@ jobs:
         run: python3 -m pip install certifi
 
       - name: Set SSL_CERT_FILE
-        run: SSL_CERT_FILE=$(python3 -m certifi) >> $env:GITHUB_ENV
+        run: echo SSL_CERT_FILE=$(python3 -m certifi) >> $env:GITHUB_ENV
 
       - name: Show SSL_CERT_FILE
         run: echo $env:SSL_CERT_FILE
