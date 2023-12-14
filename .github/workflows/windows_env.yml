@@ -1,0 +1,22 @@
+name: Check Windows requirements
+on: [pull_request]
+
+jobs:
+  Checks:
+    runs-on: aks-win-16-cores-32gb
+    steps:
+      - name: Setup Python 3.11
+        uses: openvinotoolkit/openvino/.github/actions/setup_python@master
+        with:
+          version: 3.11
+          should-setup-pip-paths: 'false'
+          self-hosted-runner: 'false'
+
+      - name: Install certifi
+        run: python3 -m pip install certifi
+
+      - name: Set SSL_CERT_FILE
+        run: SSL_CERT_FILE=$(python3 -m certifi) >> $env:GITHUB_ENV
+
+      - name: Show SSL_CERT_FILE
+        run: echo $env:SSL_CERT_FILE
