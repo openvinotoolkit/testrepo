@@ -1,0 +1,27 @@
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  entrypoint:
+    name: entrypoint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show github context
+        run: |
+          echo event_name: ${{ github.event_name }}
+          echo repository: ${{ github.repository }}
+          echo event.number: ${{ github.event.number }}
+          echo sha: ${{ github.sha }}
+          echo run_id: ${{ github.run_id }}
+          echo ref: ${{ github.ref }}
+          echo ref_name: ${{ github.ref_name }}
+          echo commitSha: ${{ inputs.commitSha }}
+        shell: bash
+      - name: Sleep a bit
+        run: |
+          sleep 60
+        shell: bash
