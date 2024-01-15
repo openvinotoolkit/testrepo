@@ -20,6 +20,10 @@ jobs:
           echo ref: ${{ github.ref }}
           echo ref_name: ${{ github.ref_name }}
           echo commitSha: ${{ inputs.commitSha }}
+        shell: bash
+
+      - name: Sleep a bit
+        run: |
           sleep 60
         shell: bash
 
@@ -31,10 +35,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: '3.x'
   
-      - show_diff:
+      - name: show diff
         run: |
-          python3 .github/diff.py -f ${{ github.ref }} -s ${{ github.sha }}
+          pip install ghapi
+          python3 .github/diff.py -f ${{ github.ref_name }} -s ${{ github.sha }}
         shell: bash
-  
