@@ -20,6 +20,9 @@ jobs:
           echo ref: ${{ github.ref }}
           echo ref_name: ${{ github.ref_name }}
           echo commitSha: ${{ inputs.commitSha }}
+        shell: bash
+      - name: Sleep a bit
+        run: |
           sleep 60
         shell: bash
 
