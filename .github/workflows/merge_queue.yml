@@ -22,3 +22,19 @@ jobs:
           echo commitSha: ${{ inputs.commitSha }}
           sleep 60
         shell: bash
+
+      - name: checkout action
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+  
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+  
+      - show_diff:
+        run: |
+          python3 .github/diff.py -f ${{ github.ref }} -s ${{ github.sha }}
+        shell: bash
+  
