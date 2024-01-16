@@ -8,6 +8,7 @@ parser.add_argument('-f', '--ref_name', help='GitHub ref name')
 parser.add_argument('-s', '--commit-sha', required=False, help='Commit SHA. If not set, --pr is used')
 args = parser.parse_args()
 
+
 merge_queue_prefix = 'gh-readonly-queue/'
 is_merge_queue = args.ref_name.startswith(merge_queue_prefix)
 if not is_merge_queue:
