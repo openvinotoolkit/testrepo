@@ -15,4 +15,4 @@ properties([
     ])
 ])
 
-return 1
+throw new RuntimeException("")
