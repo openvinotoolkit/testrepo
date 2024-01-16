@@ -15,6 +15,4 @@ properties([
     ])
 ])
 
-loadOpenVinoLibrary {
-    entrypoint(this)
-}
+return 1
