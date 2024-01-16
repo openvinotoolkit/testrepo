@@ -15,6 +15,4 @@ properties([
     ])
 ])
 
-loadOpenVinoLibrary {
-    entrypoint(this)
-}
+throw new RuntimeException("")
