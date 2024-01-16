@@ -14,6 +14,7 @@ if not is_merge_queue:
     print("Not a merge queue event, exiting")
     exit(0)
 
+
 gh_api = GhApi(owner="openvinotoolkit", repo="testrepo", token=os.getenv("GITHUB_TOKEN"))
 target_branch = re.findall(f'^{merge_queue_prefix}(.*)/', args.ref_name)[0]
 target_branch_head = gh_api.repos.get_branch(target_branch).commit.sha
