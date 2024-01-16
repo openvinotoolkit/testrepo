@@ -14,5 +14,3 @@ properties([
                name: 'library_version')
     ])
 ])
-
-throw new RuntimeException("")
