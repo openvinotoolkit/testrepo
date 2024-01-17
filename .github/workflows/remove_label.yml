@@ -10,4 +10,3 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: Stale
-
