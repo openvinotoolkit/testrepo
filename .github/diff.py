@@ -20,3 +20,4 @@ target_branch_head = gh_api.repos.get_branch(target_branch).commit.sha
 diff = gh_api.repos.compare_commits(f'{target_branch_head}...{args.commit_sha}')
 print("\n".join([file.filename for file in diff.files]))
 
+
