@@ -69,6 +69,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: 'openvino'
           submodules: 'true'
 
@@ -263,9 +264,12 @@ jobs:
     if: "!needs.smart_ci.outputs.skip_workflow"
 
     steps:
+
+
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: 'openvino'
           submodules: 'true'
 
