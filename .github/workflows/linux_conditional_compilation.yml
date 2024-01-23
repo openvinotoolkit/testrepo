@@ -59,13 +59,13 @@ jobs:
       CMAKE_GENERATOR: 'Ninja Multi-Config'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      GITHUB_WORKSPACE: '/__w/openvino/openvino'
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      INSTALL_DIR: /__w/openvino/openvino/openvino_install
-      INSTALL_TEST_DIR: /__w/openvino/openvino/tests_install
-      BUILD_DIR: /__w/openvino/openvino/openvino_build
-      SELECTIVE_BUILD_STAT_DIR: /__w/openvino/openvino/selective_build_stat
-      MODELS_PATH: /__w/openvino/openvino/testdata
+      GITHUB_WORKSPACE: '/__w/testrepo/testrepo'
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      INSTALL_DIR: /__w/testrepo/testrepo/openvino_install
+      INSTALL_TEST_DIR: /__w/testrepo/testrepo/tests_install
+      BUILD_DIR: /__w/testrepo/testrepo/openvino_build
+      SELECTIVE_BUILD_STAT_DIR: /__w/testrepo/testrepo/selective_build_stat
+      MODELS_PATH: /__w/testrepo/testrepo/testdata
       SCCACHE_AZURE_KEY_PREFIX: ubuntu22_x86_64_itt_clang_Release
     if: ${{ !needs.smart_ci.outputs.skip_workflow && github.event_name != 'merge_group' }}
 
@@ -78,6 +78,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: ${{ env.OPENVINO_REPO }}
           submodules: 'true'
 
@@ -247,11 +248,11 @@ jobs:
       DEBIAN_FRONTEND: noninteractive # to prevent apt-get from waiting user input
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      GITHUB_WORKSPACE: '/__w/openvino/openvino'
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      BUILD_DIR: /__w/openvino/openvino/openvino_build
-      SELECTIVE_BUILD_STAT_DIR: /__w/openvino/openvino/selective_build_stat
-      MODELS_PATH: /__w/openvino/openvino/testdata
+      GITHUB_WORKSPACE: '/__w/testrepo/testrepo'
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      BUILD_DIR: /__w/testrepo/testrepo/openvino_build
+      SELECTIVE_BUILD_STAT_DIR: /__w/testrepo/testrepo/selective_build_stat
+      MODELS_PATH: /__w/testrepo/testrepo/testdata
       SCCACHE_AZURE_KEY_PREFIX: ubuntu22_x86_64_cc_Release
 
     steps:
@@ -261,6 +262,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: ${{ env.OPENVINO_REPO }}
           submodules: 'true'
 

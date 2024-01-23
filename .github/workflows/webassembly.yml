@@ -52,8 +52,8 @@ jobs:
       CMAKE_BUILD_TYPE: 'Release'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      OPENVINO_BUILD_DIR: /__w/openvino/openvino/openvino_build
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      OPENVINO_BUILD_DIR: /__w/testrepo/testrepo/openvino_build
       SCCACHE_AZURE_KEY_PREFIX: webassembly_Release
     if: "!needs.smart_ci.outputs.skip_workflow"
     steps:

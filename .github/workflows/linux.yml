@@ -62,16 +62,16 @@ jobs:
       CMAKE_GENERATOR: 'Ninja Multi-Config'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      GITHUB_WORKSPACE: '/__w/openvino/openvino'
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      OPENVINO_CONTRIB_REPO: /__w/openvino/openvino/openvino_contrib
-      INSTALL_DIR: /__w/openvino/openvino/openvino_install
-      INSTALL_DIR_JS: /__w/openvino/openvino/openvino_install/js
-      INSTALL_TEST_DIR: /__w/openvino/openvino/tests_install
-      DEVELOPER_PACKAGE_DIR: /__w/openvino/openvino/developer_package_install
-      BUILD_DIR: /__w/openvino/openvino/openvino_build
+      GITHUB_WORKSPACE: '/__w/testrepo/testrepo'
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      OPENVINO_CONTRIB_REPO: /__w/testrepo/testrepo/openvino_contrib
+      INSTALL_DIR: /__w/testrepo/testrepo/openvino_install
+      INSTALL_DIR_JS: /__w/testrepo/testrepo/openvino_install/js
+      INSTALL_TEST_DIR: /__w/testrepo/testrepo/tests_install
+      DEVELOPER_PACKAGE_DIR: /__w/testrepo/testrepo/developer_package_install
+      BUILD_DIR: /__w/testrepo/testrepo/openvino_build
       SCCACHE_AZURE_KEY_PREFIX: ubuntu20_x86_64_Release
-      ONNX_RUNTIME_UTILS: /__w/openvino/openvino/openvino/src/frontends/onnx/tests/ci_utils/onnxruntime
+      ONNX_RUNTIME_UTILS: /__w/testrepo/testrepo/openvino/src/frontends/onnx/tests/ci_utils/onnxruntime
     if: "!needs.smart_ci.outputs.skip_workflow"
 
     steps:
@@ -83,6 +83,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: ${{ env.OPENVINO_REPO }}
           submodules: 'true'
 
@@ -503,11 +504,11 @@ jobs:
       CMAKE_CUDA_COMPILER_LAUNCHER: sccache
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      INSTALL_DIR: /__w/openvino/openvino/install
-      OPENVINO_DEVELOPER_PACKAGE: /__w/openvino/openvino/install/developer_package
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      OPENVINO_CONTRIB_REPO: /__w/openvino/openvino/openvino_contrib
-      NVIDIA_BUILD_DIR: /__w/openvino/openvino/nvidia_plugin_build
+      INSTALL_DIR: /__w/testrepo/testrepo/install
+      OPENVINO_DEVELOPER_PACKAGE: /__w/testrepo/testrepo/install/developer_package
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      OPENVINO_CONTRIB_REPO: /__w/testrepo/testrepo/openvino_contrib
+      NVIDIA_BUILD_DIR: /__w/testrepo/testrepo/nvidia_plugin_build
       DEBIAN_FRONTEND: 'noninteractive'
       SCCACHE_AZURE_KEY_PREFIX: ubuntu20_x86_64_Release
     if: fromJSON(needs.smart_ci.outputs.affected_components).NVIDIA

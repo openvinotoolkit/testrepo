@@ -64,16 +64,16 @@ jobs:
       CMAKE_GENERATOR: 'Ninja Multi-Config'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      GITHUB_WORKSPACE: '/__w/openvino/openvino'
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      OPENVINO_CONTRIB_REPO: /__w/openvino/openvino/openvino_contrib
-      INSTALL_DIR: /__w/openvino/openvino/openvino_install
-      INSTALL_DIR_JS: /__w/openvino/openvino/openvino_install/js
-      INSTALL_TEST_DIR: /__w/openvino/openvino/tests_install
-      DEVELOPER_PACKAGE_DIR: /__w/openvino/openvino/developer_package_install
-      BUILD_DIR: /__w/openvino/openvino/openvino_build
+      GITHUB_WORKSPACE: '/__w/testrepo/testrepo'
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      OPENVINO_CONTRIB_REPO: /__w/testrepo/testrepo/openvino_contrib
+      INSTALL_DIR: /__w/testrepo/testrepo/openvino_install
+      INSTALL_DIR_JS: /__w/testrepo/testrepo/openvino_install/js
+      INSTALL_TEST_DIR: /__w/testrepo/testrepo/tests_install
+      DEVELOPER_PACKAGE_DIR: /__w/testrepo/testrepo/developer_package_install
+      BUILD_DIR: /__w/testrepo/testrepo/openvino_build
       SCCACHE_AZURE_KEY_PREFIX: 'ubuntu20_aarch64_Release'
-      ONNX_RUNTIME_UTILS: /__w/openvino/openvino/openvino/src/frontends/onnx/tests/ci_utils/onnxruntime
+      ONNX_RUNTIME_UTILS: /__w/testrepo/testrepo/openvino/src/frontends/onnx/tests/ci_utils/onnxruntime
     if: "!needs.smart_ci.outputs.skip_workflow"
 
     steps:
@@ -83,6 +83,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: ${{ env.OPENVINO_REPO }}
           submodules: 'true'
 

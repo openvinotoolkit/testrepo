@@ -54,11 +54,11 @@ jobs:
       CMAKE_GENERATOR: 'Ninja'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      GITHUB_WORKSPACE: '/__w/openvino/openvino'
-      OPENVINO_REPO: /__w/openvino/openvino/openvino
-      INSTALL_DIR: /__w/openvino/openvino/openvino_install
-      INSTALL_TEST_DIR: /__w/openvino/openvino/tests_install
-      BUILD_DIR: /__w/openvino/openvino/openvino_build
+      GITHUB_WORKSPACE: '/__w/testrepo/testrepo'
+      OPENVINO_REPO: /__w/testrepo/testrepo/openvino
+      INSTALL_DIR: /__w/testrepo/testrepo/openvino_install
+      INSTALL_TEST_DIR: /__w/testrepo/testrepo/tests_install
+      BUILD_DIR: /__w/testrepo/testrepo/openvino_build
       SCCACHE_AZURE_KEY_PREFIX: fedora33_x86_64_Release
     if: "!needs.smart_ci.outputs.skip_workflow"
     steps:
@@ -68,6 +68,7 @@ jobs:
       - name: Clone OpenVINO
         uses: actions/checkout@v4
         with:
+          repository: 'openvinotoolkit/openvino'
           path: ${{ env.OPENVINO_REPO }}
           submodules: 'true'
 

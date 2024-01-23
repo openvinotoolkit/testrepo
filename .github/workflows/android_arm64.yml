@@ -54,11 +54,11 @@ jobs:
       CMAKE_GENERATOR: 'Ninja'
       CMAKE_CXX_COMPILER_LAUNCHER: sccache
       CMAKE_C_COMPILER_LAUNCHER: sccache
-      OPENVINO_REPO: '/__w/openvino/openvino/openvino'
-      VCPKG_ROOT: '/__w/openvino/openvino/vcpkg'
-      BUILD_DIR: '/__w/openvino/openvino/build'
-      ANDROID_TOOLS: '/__w/openvino/openvino/android_tools'
-      ANDROID_NDK_HOME: '/__w/openvino/openvino/android_tools/ndk-bundle'
+      OPENVINO_REPO: '/__w/testrepo/testrepo/openvino'
+      VCPKG_ROOT: '/__w/testrepo/testrepo/vcpkg'
+      BUILD_DIR: '/__w/testrepo/testrepo/build'
+      ANDROID_TOOLS: '/__w/testrepo/testrepo/android_tools'
+      ANDROID_NDK_HOME: '/__w/testrepo/testrepo/android_tools/ndk-bundle'
       ANDROID_SDK_VERSION: 29
       ANDROID_ABI_CONFIG: arm64-v8a
       VCPKG_DEFAULT_BINARY_CACHE: '/mount/caches/ccache/android_arm64/vcpkg_cache'
