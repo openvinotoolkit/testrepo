@@ -1,10 +1,14 @@
 on:
   pull_request:
+    branches:
+      - 'master'
+    paths:
+      - 'tools/ovc/**'
+      - '.github/workflows/ovc.yml'
   merge_group:
   push:
     branches:
       - 'master'
-
 
 jobs:
   entrypoint:
