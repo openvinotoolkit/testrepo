@@ -31,11 +31,10 @@ jobs:
         run: |
           echo ${{ steps.docker_tag.outputs.current_docker_tag }}
   
-        - name: Update current tag in workflow file
-          run: |
-            printf "new_tag" > ${{ env.CURRENT_DOCKER_TAG_FILE }}
-            cat ${{ env.CURRENT_DOCKER_TAG_FILE }}
+      - name: Update current tag in workflow file
+        run: |
+          printf "new_tag" > ${{ env.CURRENT_DOCKER_TAG_FILE }}
+          cat ${{ env.CURRENT_DOCKER_TAG_FILE }}
   
-        - name: Commit changes
-          uses: stefanzweifel/git-auto-commit-action@v5
-  
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
