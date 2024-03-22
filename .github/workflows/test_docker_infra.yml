@@ -4,10 +4,37 @@ on:
     branches:
       - master
 
+env:
+  CURRENT_DOCKER_TAG_FILE: .github/dockerfiles/docker_tag
+
 jobs:
-  dummy:
+  update_tag:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Say hello
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+
+      - name: Get current docker tag
+        id: docker_tag
         shell: bash
-        run: echo "hello"
+        run: |
+          echo "current_docker_tag=$(<${{ env.CURRENT_DOCKER_TAG_FILE }})" >> "$GITHUB_OUTPUT"
+          echo $current_docker_tag
+  
+      - name: Check docker tag output
+        shell: bash
+        run: |
+          echo ${{ steps.docker_tag.outputs.current_docker_tag }}
+  
+      - name: Update current tag in workflow file
+        run: |
+          printf "new_tag" > ${{ env.CURRENT_DOCKER_TAG_FILE }}
+          cat ${{ env.CURRENT_DOCKER_TAG_FILE }}
+  
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
